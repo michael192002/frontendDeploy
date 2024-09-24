@@ -10,7 +10,7 @@ export async function postEmployee(employee : any) {
 }
 
 export async function getEmployees(employee : string | undefined) {
-    const locationQuery = "?employee=" + (employee ? employee : "");
+    const locationQuery = "?cafe=" + (employee ? employee : "");
     const response = await fetch(
         `${BASE}/employees${locationQuery}` ,
     )
