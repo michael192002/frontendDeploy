@@ -128,7 +128,7 @@ export function AddEdit({title, employee, route, mutation} : {title : string, em
       placeholder="Select Cafe"
       defaultValue={formData.cafeId}
       style={{ width: 120 }}
-      options={data?.map((d : any) => ({value : d.id, label : d.name}))}
+      options={(Array.isArray(data) && data) ? data.map((d : any) => ({value : d.id, label : d.name})) : []}
     />
     </Form.Item>
 
