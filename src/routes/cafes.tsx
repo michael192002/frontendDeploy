@@ -14,8 +14,7 @@ import { useDebouncedCallback } from 'use-debounce'
 import { LoadingOutlined } from '@ant-design/icons';
 import { Flex, Spin } from 'antd';
 import { message } from 'antd'
-import type { PopconfirmProps } from 'antd';
-import { Popconfirm } from 'antd';
+import { Link } from '@tanstack/react-router'
 import { PopConfirmDelete } from '../components/popconfirm'
 const { Search } = Input;
 export const Route = createFileRoute('/cafes')({
@@ -51,16 +50,15 @@ function Cafe() {
   const navigate = useNavigate({ from: Route.fullPath })
   const action = (props : any)  => {
     return (
-      <div className="flex gap-2 p-1">
-        <Button type="primary" onClick={() => navigate({to : `/cafe/edit/${props.data.id}`})}>Edit</Button>
-        
+      <div className="flex gap-2 p-1" key={props.data.id}>
+        <Button type="primary" onClick={() => navigate({from :'/cafes', to : `/cafe/edit/$cafeId`, params : {cafeId : props.data.id}})}>Edit</Button>
         {PopConfirmDelete(props.data.id, mutation)}
       </div>
     )
   }
   const Employees = (props : any) => {
     return (<>
-        <Button type="primary" onClick={() => navigate({ to: '/employees', search : {cafe : props.data.name}})}>{props.value}</Button>
+        <Button type="primary" onClick={() => navigate({ from :'/cafes',  to: '/employees', search : {cafe : props.data.name}})}>{props.value}</Button>
    </>)
   }
   const handleSearch = useDebouncedCallback((term) => {  

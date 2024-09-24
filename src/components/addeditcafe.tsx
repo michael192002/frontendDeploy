@@ -18,6 +18,7 @@ type FieldType = {
   
 const { TextArea } = Input;
 export function AddEdit({title, cafe, route, mutation} : {title : string, cafe : FieldType, route : any, mutation : any }) {
+  console.log(cafe)
   const [form] = Form.useForm();
   const [changes, setChanges] = useState(false);
   const navigate = useNavigate({ from: route.fullPath })

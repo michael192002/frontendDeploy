@@ -42,8 +42,8 @@ function Employees() {
   const navigate = useNavigate({ from: Route.fullPath })
   const action = (props : any)  => {
     return (
-      <div className="flex gap-2 p-1">
-        <Button type="primary" onClick={() => navigate({to : `/employee/edit/${props.data.id}`})}>Edit</Button>
+      <div className="flex gap-2 p-1" key={props.data.id}>
+        <Button type="primary" onClick={() => navigate({to : `/employee/edit/$employeeId`, params : {employeeId : props.data.id}})}>Edit</Button>
         {PopConfirmDelete(props.data.id, mutation)}
       </div>
     )

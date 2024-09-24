@@ -30,8 +30,7 @@ const NavLink: FC<NavLinkProps> = ({ to, children, icon: Icon }) => {
 };
 function RootComponent() {
   return (
-    <>
-      
+    <> 
       <div className="p-4 flex gap-4 text-lg shadow-md">
         <NavLink to="/" icon={HomeOutlined}>
           Home

@@ -1,5 +1,5 @@
 import { BASE } from "../constant"
-type CafeDTO = {
+export type CafeDTO = {
   id : string,
   name : string,
   description : string,
