@@ -10,7 +10,7 @@ function Edit(){
     const { cafeId } = Route.useParams()
     const {data} = useQuery({ queryKey: ['cafe'], queryFn: () => getCafe(cafeId)})
     return <>
-        {data && <AddEdit title="Edit" cafe={data} route={Route} mutation={putCafe} />}
         {!data && <div className="text-3xl text-center">Loading...</div>}
+        {data && <AddEdit title="Edit" cafe={data} route={Route} mutation={putCafe} />}
     </>
 }

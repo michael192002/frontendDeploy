@@ -13,10 +13,10 @@ import { Radio } from 'antd';
 import { getCafes } from '../api/cafe';
 import { useQuery } from '@tanstack/react-query';
 type FieldType = {
-    name?: string
-    email_address?: string
-    phone_number?: string
-    gender? : string,
+    name: string
+    email_address: string
+    phone_number: string
+    gender : string,
     cafeId? : string,
 }
   

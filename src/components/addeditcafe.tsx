@@ -10,10 +10,10 @@ import { getBase64 } from '../utility/fileutility'
 import type { PopconfirmProps } from 'antd';
 import { Button, message, Popconfirm } from 'antd';
 type FieldType = {
-    name?: string
-    description?: string
-    location?: string
-    upload? : any 
+    name: string
+    description: string
+    location: string
+    logo? : string
 }
   
 const { TextArea } = Input;
@@ -22,7 +22,7 @@ export function AddEdit({title, cafe, route, mutation} : {title : string, cafe :
   const [changes, setChanges] = useState(false);
   const navigate = useNavigate({ from: route.fullPath })
   const { cafeId } = route.useParams();
-  const [formData, setFormData] = useState(cafe);
+  const [formData, setFormData] = useState({...cafe});
   const [fileList, setFileList] = useState<any>([])
   const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
     let base64;
@@ -30,7 +30,10 @@ export function AddEdit({title, cafe, route, mutation} : {title : string, cafe :
     if (fileList?.length > 0) {
       base64 = await getBase64(fileList[0]);
       setFileList([]);
+    } else {
+      base64 = cafe.logo; //use old value
     }
+    
     if (base64) {
        newCafe = {...values, logo : base64};
     } else {

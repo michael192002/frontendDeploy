@@ -1,4 +1,11 @@
 import { BASE } from "../constant"
+type CafeDTO = {
+  id : string,
+  name : string,
+  description : string,
+  logo? : string,
+  location : string
+}
 export async function postCafe(cafe : any) {
     const res = await fetch(`${BASE}/cafe`, {
         method: 'POST',
@@ -14,16 +21,14 @@ export async function getCafes(location : string | undefined) {
     const response = await fetch(
         `${BASE}/cafes${locationQuery}` ,
     )
-    console.log(`${BASE}/cafes` + new URLSearchParams(locationQuery))
     return await response.json()
 }
 
-export async function getCafe(id : string) {
+export async function getCafe(id : string) : Promise<CafeDTO> {
   const idQuery = "?id=" + (id ? id : "");
   const response = await fetch(
       `${BASE}/cafe${idQuery}` ,
   )
-  console.log(`${BASE}/cafes` + new URLSearchParams(idQuery))
   return await response.json()
 }
 

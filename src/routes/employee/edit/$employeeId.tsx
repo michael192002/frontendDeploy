@@ -11,7 +11,7 @@ function Edit(){
     
     const {data} = useQuery({ queryKey: ['employee'], queryFn: () => getEmployee(employeeId)})
     return <>
-        {data && <AddEdit title="Edit" employee={data} route={Route} mutation={putEmployee} />}
         {!data && <div className="text-3xl text-center">Loading...</div>}
+        {data && <AddEdit title="Edit" employee={data} route={Route} mutation={putEmployee} />}
     </>
 }
