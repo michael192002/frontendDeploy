@@ -1,1 +1,1 @@
-export const BASE = "http://localhost:3000"
+export const BASE = "backend-deploy-wheat.vercel.app"
