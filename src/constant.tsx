@@ -1,1 +1,1 @@
-export const BASE = "backend-deploy-wheat.vercel.app"
+export const BASE = "https://backend-deploy-wheat.vercel.app"
